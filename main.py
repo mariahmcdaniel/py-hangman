@@ -18,4 +18,10 @@ elif category == 2:
     word_pool = hangman_words.animal_pool
     print("Great, you chose Animals")
 
-word_index = len(word_pool)
+word_index = random.randint(0,len(word_pool))
+
+secret_word = word_pool[word_index]
+
+# print(secret_word)
+
+
