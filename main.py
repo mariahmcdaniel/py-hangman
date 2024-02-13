@@ -35,7 +35,7 @@ for num in range (letter_count):
 word_display = " ".join(word_display_l)
 print(word_display)
 # print(word_l)
-turns_left = 10
+turns_left = 7
 # letter_bank = "A B C D E F G H I J K L M\nN O P Q R S T U V W X Y Z"
 # print(letter_bank)
 letter_l = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
@@ -43,7 +43,6 @@ letter_l = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q",
 
 used_letters = []
 
-correct = False
 win = False
 while turns_left > 0:
     if "".join(word_display_l) == secret_word.upper():
@@ -69,7 +68,11 @@ while turns_left > 0:
                     print("No")
             if match_count < 1:
                 turns_left = int(turns_left) - 1
-                print(f"\n\n\nyou have {turns_left} guesses remaining!")
+                print(f"\n\n\n      NO {player_guess}s found!\n\n                            ▄██████████████▄▐█▄▄▄▄█▌
+                ██████▌▄▌▄▐▐▌███▌▀▀██▀▀
+                ████▄█▌▄▌▄▐▐▌▀███▄▄█▌
+                ▄▄▄▄▄██████████████")
+                print(f"       {hangman_art.stages[turns_left]}\n\n")
             else: print(f"\n\n             BRAVO!")    
             used_letters.append(player_guess)
             letter_l.remove(player_guess)
@@ -79,5 +82,6 @@ while turns_left > 0:
             print("\n\n\nInvalid Input. Try again")
 
 if win == False:
-    print(f"\n\nSORRY! GAME OVER :(\n\nThe word was {secret_word}")
+    print(f"\n\n               SORRY! GAME OVER :(\n\nThe word was {secret_word}\n\n\n            {hangman_art.stages[0]}")
+    print(hangman_art.lose[0])
 
