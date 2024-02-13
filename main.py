@@ -18,10 +18,16 @@ elif category == 2:
     word_pool = hangman_words.animal_pool
     print("Great, you chose Animals")
 
-word_index = random.randint(0,len(word_pool))
+word_index = random.randint(0,len(word_pool)-1)
 
 secret_word = word_pool[word_index]
 
 # print(secret_word)
+word_l = list(secret_word)
 
+letter_count = len(word_l)
+
+print(word_l)
+
+player_guess = input("Choose a letter:")
 
