@@ -63,9 +63,9 @@ while turns_left > 0:
                     word_display_l.pop(cursor)
                     word_display_l.insert(cursor,player_guess)
                     match_count = match_count + 1
-                    print("match")
-                else:
-                    print("No")
+                    # print("match")
+                # else:
+                    # print("No")
             if match_count < 1:
                 turns_left = int(turns_left) - 1
                 print(f"\n\n\n      NO {player_guess}s found!\n\n")
