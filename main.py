@@ -42,9 +42,12 @@ letter_l = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q",
 
 used_letters = []
 
+correct = False
+win = False
 while turns_left > 0:
     if "".join(word_display_l) == secret_word.upper():
         print(f"\n\n\n   ***      YOU WON! THE WORD WAS {secret_word.upper()}      ***")
+        win = True
         break
     while True:
         try:
@@ -53,21 +56,27 @@ while turns_left > 0:
             print(" ".join(letter_l))
             player_guess = str(input("\n\nCHOOSE A LETTER:\n\n")).upper()
             cursor = -1
+            match_count = 0
             for letter in word_l:
                 cursor = int(cursor) + 1
                 if player_guess.upper() == letter:
                     word_display_l.pop(cursor)
                     word_display_l.insert(cursor,player_guess)
+                    match_count = match_count + 1
                     print("match")
                 else:
                     print("No")
-            turns_left = int(turns_left) - 1
+            if match_count < 1:
+                turns_left = int(turns_left) - 1
+                print(f"\n\n\nyou have {turns_left} guesses remaining!")
+            else: print(f"\n\n             BRAVO!")    
             used_letters.append(player_guess)
             letter_l.remove(player_guess)
-            print(f"\n\n\nyou have {turns_left} guesses remaining!")
+            # print(f"\n\n\nyou have {turns_left} guesses remaining!")
             break        
         except ValueError:
             print("\n\n\nInvalid Input. Try again")
 
-print(f"\n\nThe word was {secret_word}")
+if win == False:
+    print(f"\n\nSORRY! GAME OVER :(\n\nThe word was {secret_word}")
 
