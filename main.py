@@ -68,11 +68,10 @@ while turns_left > 0:
                     print("No")
             if match_count < 1:
                 turns_left = int(turns_left) - 1
-                print(f"\n\n\n      NO {player_guess}s found!\n\n                            ▄██████████████▄▐█▄▄▄▄█▌
-                ██████▌▄▌▄▐▐▌███▌▀▀██▀▀
-                ████▄█▌▄▌▄▐▐▌▀███▄▄█▌
-                ▄▄▄▄▄██████████████")
-                print(f"       {hangman_art.stages[turns_left]}\n\n")
+                print(f"\n\n\n      NO {player_guess}s found!\n\n")
+                      
+                print(hangman_art.fail[0])
+                print(f"       {hangman_art.stages[turns_left]}")
             else: print(f"\n\n             BRAVO!")    
             used_letters.append(player_guess)
             letter_l.remove(player_guess)
