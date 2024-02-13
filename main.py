@@ -27,14 +27,25 @@ word_l = list(secret_word)
 
 letter_count = len(word_l)
 
-print(word_l)
+# print(word_l)
+turns_left = 10
+letter_bank = "A B C D E F G H I J K L M\nN O P Q R S T U V W X Y Z"
+print(letter_bank)
+letter_l = letter_bank.split()
+print(letter_l)
+while turns_left >= 0:
+    while True:
+        try:
+            player_guess = str(input("Choose A Letter:"))
+            for letter in word_l:
+                if player_guess.casefold() == letter:
+                    print("match")
+                else:
+                    print("No")
+            turns_left = int(turns_left) - 1
+            break        
+        except ValueError:
+            print("\n\n\nInvalid Input. Try again")
 
-player_guess = input("Choose a letter:")
 
-for letter in word_l:
-    if player_guess.casefold() == letter:
-        print("match")
-    else:
-        print("No")
-            
 
