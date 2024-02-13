@@ -31,3 +31,10 @@ print(word_l)
 
 player_guess = input("Choose a letter:")
 
+for letter in word_l:
+    if player_guess.casefold() == letter:
+        print("match")
+    else:
+        print("No")
+            
+
